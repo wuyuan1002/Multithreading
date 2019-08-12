@@ -7,11 +7,11 @@ package 等待唤醒机制;
  */
 public class GetThread implements Runnable {
     private Student student;
-
+    
     public GetThread(Student student) {
         this.student = student;
     }
-
+    
     @Override
     public void run() {
         for (int j = 0; j < 20; j++) {

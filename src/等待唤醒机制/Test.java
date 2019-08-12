@@ -17,13 +17,11 @@ public class Test {
         Student student = new Student();
         SetThread setThread = new SetThread(student);
         GetThread getThread = new GetThread(student);
-
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(2,
-                3, 1, TimeUnit.SECONDS,
-                new LinkedBlockingQueue<>(3) );
+        
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 3, 1, TimeUnit.SECONDS, new LinkedBlockingQueue<>(3));
         pool.execute(setThread);
         pool.execute(getThread);
         pool.shutdown();
     }
-
+    
 }

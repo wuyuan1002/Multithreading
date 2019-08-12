@@ -12,12 +12,12 @@ public class Student {
     private String name;
     private int age;
     private boolean b;
-
+    
     public Student() {
         this.b = false;
     }
-
-    public synchronized void set(String name, int age){
+    
+    public synchronized void set(String name, int age) {
         if (this.b) {
             try {
                 this.wait();
@@ -30,7 +30,8 @@ public class Student {
         this.b = true;
         this.notify();
     }
-    public synchronized void get(){
+    
+    public synchronized void get() {
         if (!this.b) {
             try {
                 this.wait();
@@ -38,7 +39,7 @@ public class Student {
                 e.printStackTrace();
             }
         }
-        System.out.println(this.name +"-------" +this.age);
+        System.out.println(this.name + "-------" + this.age);
         this.b = false;
         this.notify();
     }
