@@ -28,7 +28,9 @@ public class Student {
      *             应该继续 wait()，但它却继续往下执行了
      */
     public synchronized void set(String name, int age) {
+        System.out.println(Thread.currentThread().getName() + " --- 进");
         while (!this.isEmpty) {
+            System.out.println(Thread.currentThread().getName() + "阻塞");
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -38,20 +40,22 @@ public class Student {
         this.name = name;
         this.age = age;
         this.isEmpty = false;
+        System.out.println(Thread.currentThread().getName() + " --- 出：" + this.name + " --- " + this.age);
         this.notify();
     }
     
     public synchronized void get() {
-        // wait()方法的调用因该写在循环中，防止虚假唤醒
+        System.out.println(Thread.currentThread().getName() + " -- 进");
         while (this.isEmpty) {
+            System.out.println(Thread.currentThread().getName() + "阻塞");
             try {
                 this.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println(this.name + " --- " + this.age);
         this.isEmpty = true;
+        System.out.println(Thread.currentThread().getName() + " -- 出：" + this.name + " --- " + this.age);
         this.notify();
     }
 }
