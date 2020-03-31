@@ -13,7 +13,7 @@ public class GetThread implements Runnable {
     
     @Override
     public void run() {
-        for (int j = 0; j < 20; j++) {
+        for (int i = 0; i < 30; i++) {
             this.student.get();
         }
     }
