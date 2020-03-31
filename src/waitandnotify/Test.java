@@ -5,6 +5,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 1. 当前线程必须获得锁，才可以调用该锁的 wait()和 notify()方法，否则会抛出 IllegalMonitorStateException异常
+ * 2. 一个 wait()的线程如果被中断会报 InterruptedException异常
+ *
  * @author wuyuan
  * @date 2019/3/16
  */
