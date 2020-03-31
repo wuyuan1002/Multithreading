@@ -18,7 +18,7 @@ public class SetThread implements Runnable {
     public void run() {
         for (int j = 0; j < 20; j++, this.i++) {
             if (this.i % 2 == 0) {
-                student.set("wuyuan", 23);
+                student.set("wy", 23);
             } else {
                 student.set("wyj", 22);
             }
