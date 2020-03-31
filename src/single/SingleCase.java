@@ -17,8 +17,9 @@ public class SingleCase {
 /**
  * 饿汉式
  *
- * 多线程情况下不存在线程安全问题，因为在getSingle1()方法中虽然有共享数据，但对共享数据的操作只有一句，
- * 不会出现线程安全问题。而且，共享数据已经被final修饰，不可修改，更没有安全隐患了。
+ * 多线程情况下不存在线程安全问题，因为在 getSingle1()方法中虽然有共享数据，但对共享数据的操作只有一句，
+ * 不会出现线程安全问题。而且，共享数据用 static修饰，在类被初始化时就创建了，而且被 final修饰，不可修改，
+ * 更没有安全隐患了。
  */
 class Single1{
     private static final Single1 S = new Single1();
@@ -36,8 +37,8 @@ class Single1{
 /**
  * 懒汉式
  *
- * 在多线程环境下存在线程安全问题，因为getSingle2()中有共享数据且有多条语句操作共享数据，
- * 所以会出现安全问题，会new出多个Single2对象。
+ * 在多线程环境下存在线程安全问题，因为 getSingle2()中有共享数据且有多条语句操作共享数据，
+ * 所以会出现安全问题，会 new出多个 Single2对象。
  */
 class Single2{
     private static Single2 s = null;
@@ -68,11 +69,10 @@ class Single3{
 
     }
 
-    /*
+    /**
      * 同步函数的锁一般是this对象，但这是静态方法，它在对象之前加载，
-     * 它没有this指向，用的锁是当前类的字节码文件-->Single3.class
+     * 它没有this指向，用的锁是当前类的字节码文件 --> Single3.class
      */
-
     public static synchronized Single3 getSingle3() {
         if (s == null) {
             s = new Single3();
@@ -96,9 +96,10 @@ class Single4{
 
     }
     public static Single4 getSingle4() {
-        //多加了一次判断，只有第一次为空时才会进入判断锁，之后再访问时直接return，解决了效率问题
+        // 多加了一次判断，只有第一次为空时才会进入判断锁，之后再访问时直接return，解决了效率问题
         if (s == null) {
-            //静态方法随着类的加载而加载，所以没有this没有对象，锁对象是类的字节码文件。加锁后可以防止线程多次new对象的线程安全问题。
+            // 静态方法随着类的加载而加载，所以没有this没有对象，锁对象是类的字节码文件。
+            // 加锁后可以防止线程多次new对象的线程安全问题。
             synchronized (Single4.class) {
                 if (s == null) {
                     s = new Single4();
