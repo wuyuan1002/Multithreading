@@ -1,10 +1,9 @@
-package 单例模式;
+package single;
 
 /**
+ * 几种单例模式的比较
+ *
  * @author wuyuan
- * @version 1.0
- * @className: SingleCase
- * @description 描述:单例模式
  * @date 2019/4/21
  */
 public class SingleCase {

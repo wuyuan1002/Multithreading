@@ -1,4 +1,4 @@
-package 等待唤醒机制;
+package waitandnotify;
 
 /**
  * 公共资源类，钥匙类

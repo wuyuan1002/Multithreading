@@ -1,9 +1,8 @@
-package 等待唤醒机制;
+package waitandnotify;
 
 /**
  * @author wuyuan
- * @version 1.0
- * @date 2019/3/16 20:22
+ * @date 2019/3/16
  */
 public class GetThread implements Runnable {
     private Student student;
