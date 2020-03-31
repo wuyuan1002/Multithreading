@@ -4,8 +4,7 @@ package waitandnotify;
  * 公共资源类，钥匙类
  *
  * @author wuyuan
- * @version 1.0
- * @date 2019/3/16 19:48
+ * @date 2019/3/16
  */
 
 public class Student {

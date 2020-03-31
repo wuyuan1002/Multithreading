@@ -6,8 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author wuyuan
- * @version 1.0
- * @date 2019/3/16 20:24
+ * @date 2019/3/16
  */
 public class Test {
     public static void main(String[] args) {
