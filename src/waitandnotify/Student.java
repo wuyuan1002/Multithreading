@@ -28,7 +28,7 @@ public class Student {
      *             线程应该继续 wait()，但它却继续往下执行了
      */
     public synchronized void set(String name, int age) {
-        System.out.println(Thread.currentThread().getName() + " --- 进");
+        System.out.println(Thread.currentThread().getName() + " --- 得到锁");
         while (!this.isEmpty) {
             System.out.println(Thread.currentThread().getName() + "阻塞");
             try {
@@ -40,12 +40,12 @@ public class Student {
         this.name = name;
         this.age = age;
         this.isEmpty = false;
-        System.out.println(Thread.currentThread().getName() + " --- 出：" + this.name + " --- " + this.age);
+        System.out.println(Thread.currentThread().getName() + " --- 释放锁：" + this.name + " --- " + this.age);
         this.notify();
     }
     
     public synchronized void get() {
-        System.out.println(Thread.currentThread().getName() + " -- 进");
+        System.out.println(Thread.currentThread().getName() + " -- 得到锁");
         while (this.isEmpty) {
             System.out.println(Thread.currentThread().getName() + "阻塞");
             try {
@@ -55,7 +55,7 @@ public class Student {
             }
         }
         this.isEmpty = true;
-        System.out.println(Thread.currentThread().getName() + " -- 出：" + this.name + " --- " + this.age);
+        System.out.println(Thread.currentThread().getName() + " -- 释放锁：" + this.name + " --- " + this.age);
         this.notify();
     }
 }
