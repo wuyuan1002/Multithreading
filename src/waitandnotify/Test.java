@@ -22,8 +22,8 @@ public class Test {
         new Thread(setThread,"set1").start();
         new Thread(getThread,"get1").start();
         
-        // new Thread(setThread,"set2").start(); add2
-        // new Thread(getThread,"get2").start(); add1
+        // new Thread(setThread,"set2").start();
+        // new Thread(getThread,"get2").start();
     }
     
 }
