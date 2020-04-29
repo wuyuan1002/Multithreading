@@ -22,7 +22,7 @@ public class Test {
         new Thread(setThread,"set1").start();
         new Thread(getThread,"get1").start();
         
-        // new Thread(setThread,"set2").start();commit1
+        // new Thread(setThread,"set2").start();
         // new Thread(getThread,"get2").start();
     }
     
